@@ -2,19 +2,29 @@
 
 import { useForm } from "react-hook-form"
 
+interface FormData {
+    nome: string,
+    telefone: string,
+    email: string,
+    senha: string
+    profissao: string
+}
+
 export default function Form() {
 
     const {
         register,
-        handleSubmit,
+        handleSubmit, //essa função handleSubmit espera um parâmetro que é a função de envio do form.
         formState: { errors }
-    } = useForm();
+    } = useForm<FormData>();
+
+    const submitFom = (dados: FormData) => {
+        console.log(dados)
+    }
 
     return (
         <div className="w-2/4 m-auto p-8">
-            <form onSubmit={handleSubmit((dados) => {
-                console.log(dados)
-            })}>
+            <form onSubmit={handleSubmit(submitFom)}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
                         Nome
@@ -63,6 +73,36 @@ export default function Form() {
                         placeholder="Email Completo"
                     />
                 </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                        Senha
+                    </label>
+                    <input
+                        {...register('senha', {
+                            required: true, minLength: 8
+                        })}
+                        type="password"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        placeholder="Digite sua senha"
+                    />
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                        Selecione uma profissão
+                    </label>
+                    <select
+                        {...register('profissao', {
+                            required: true, validate: (value) => {
+                                return value != "0";
+                            }
+                        })}
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                        <option value={0}>Selecione...</option>
+                        <option value={1}>Desenvolvedor</option>
+                        <option value={2}>Outra</option>
+                    </select>
+                </div>
+                {/* acrescentar campos checkbox, endereço... */}
                 <input className="bg-blue-300 p-2 rounded-lg " type="submit" />
             </form>
         </div>
