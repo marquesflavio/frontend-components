@@ -6,3 +6,5 @@ Para formulários verificar:
     - react-query
 
     trabalhar o tratamento dos erros...
+
+    Conteúdo de explicação https://www.youtube.com/watch?v=qH272VSWje4&t=1516s
