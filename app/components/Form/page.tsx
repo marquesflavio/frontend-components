@@ -30,17 +30,20 @@ export default function Form() {
                         Nome
                     </label>
                     <input
-                        {...register('nome', {
-                            required: true,
-                            minLength: {
-                                value: 3,
-                                message: "Insira pelo menos 3 caracteres"
-                            }
-                        })}
-                        type="text"
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                        placeholder="Nome Completo"
+                    className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Nome Completo"
+                    {...register('nome', {
+                        required: true,
+                        minLength: {
+                            value: 3,
+                            message: "Insira pelo menos 3 caracteres"
+                        }
+                    })}
+                    
                     />
+                    {errors?.nome?.type === "required" && (
+                        <p className="text-red-600">Nome é obrigatório</p>)}
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -59,6 +62,7 @@ export default function Form() {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Telefone Celular"
                     />
+                    {errors?.telefone?.type === "required" && (<p className="text-red-600">Insira um telefone válido</p>)}
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -72,6 +76,7 @@ export default function Form() {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Email Completo"
                     />
+                    {errors?.email?.type === "required" && (<p className="text-red-600">Email é obrigatório</p>)}
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -85,6 +90,7 @@ export default function Form() {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Digite sua senha"
                     />
+                {errors?.senha?.type === "required" && (<p className="text-red-600">Preencha este campo.</p>)}
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -92,7 +98,8 @@ export default function Form() {
                     </label>
                     <select
                         {...register('profissao', {
-                            required: true, validate: (value) => {
+                            required: true, 
+                            validate: (value) => {
                                 return value != "0";
                             }
                         })}
@@ -101,6 +108,7 @@ export default function Form() {
                         <option value={1}>Desenvolvedor</option>
                         <option value={2}>Outra</option>
                     </select>
+                    {errors?.profissao?.type === "validate" && <p className="text-red-600">Profissão é obrigatória</p>}
                 </div>
                 {/* acrescentar campos checkbox, endereço... */}
                 <input className="bg-blue-300 p-2 rounded-lg " type="submit" />
