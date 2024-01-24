@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form"
 
 interface FormData {
     nome: string,
+    cpf: number,
     telefone: string,
     email: string,
     senha: string
@@ -42,8 +43,26 @@ export default function Form() {
                     })}
                     
                     />
-                    {errors?.nome?.type === "required" && (
-                        <p className="text-red-600">Nome é obrigatório</p>)}
+                    {errors?.nome?.type === "required" && (<p className="text-red-600">Nome é obrigatório</p>)}
+                </div>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2">
+                        CPF
+                    </label>
+                    <input
+                    className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Nome Completo"
+                    {...register('cpf', {
+                        required: true,
+                        minLength: {
+                            value: 11,
+                            message: "Insira um CPF válido"
+                        }
+                    })}
+                    
+                    />
+                    {errors?.nome?.type === "required" && (<p className="text-red-600">Insira um CPF válido</p>)}
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
