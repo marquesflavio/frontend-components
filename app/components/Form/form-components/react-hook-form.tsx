@@ -19,29 +19,30 @@ export default function Form() {
         formState: { errors }
     } = useForm<FormData>();
 
-    const submitFom = (dados: FormData) => {
+    const submitForm = (dados: FormData) => {
         console.log(dados)
     }
 
     return (
         <div className="w-2/4 m-auto p-8">
-            <form onSubmit={handleSubmit(submitFom)}>
+            <form onSubmit={handleSubmit(submitForm)}>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
                         Nome
                     </label>
                     <input
-                    className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="text"
-                    placeholder="Nome Completo"
-                    {...register('nome', {
-                        required: true,
-                        minLength: {
-                            value: 3,
-                            message: "Insira pelo menos 3 caracteres"
-                        }
-                    })}
-                    
+                        className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        placeholder="Nome Completo"
+                        {...register('nome', {
+
+                            required: true,
+                            minLength: {
+                                value: 3,
+                                message: "Insira pelo menos 3 caracteres"
+                            }
+                        })}
+
                     />
                     {errors?.nome?.type === "required" && (<p className="text-red-600">Nome é obrigatório</p>)}
                 </div>
@@ -50,17 +51,17 @@ export default function Form() {
                         CPF
                     </label>
                     <input
-                    className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="text"
-                    placeholder="Nome Completo"
-                    {...register('cpf', {
-                        required: true,
-                        minLength: {
-                            value: 11,
-                            message: "Insira um CPF válido"
-                        }
-                    })}
-                    
+                        className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        type="text"
+                        placeholder="Nome Completo"
+                        {...register('cpf', {
+                            required: true,
+                            minLength: {
+                                value: 11,
+                                message: "Insira um CPF válido"
+                            }
+                        })}
+
                     />
                     {errors?.nome?.type === "required" && (<p className="text-red-600">Insira um CPF válido</p>)}
                 </div>
@@ -109,7 +110,7 @@ export default function Form() {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Digite sua senha"
                     />
-                {errors?.senha?.type === "required" && (<p className="text-red-600">Preencha este campo.</p>)}
+                    {errors?.senha?.type === "required" && (<p className="text-red-600">Preencha este campo.</p>)}
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
@@ -117,7 +118,7 @@ export default function Form() {
                     </label>
                     <select
                         {...register('profissao', {
-                            required: true, 
+                            required: true,
                             validate: (value) => {
                                 return value != "0";
                             }
