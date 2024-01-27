@@ -8,4 +8,9 @@ Para formulários verificar:
     - @hookform/resolvers para fazer a ligação do hookform com o zod (npm install @hookform/resolvers)
     - react-query
 
+ ## React hook form, Zod, @hookform/resolver
+
+    Essa estrutura de formulário é mais completa, zod possui uma gama muito grande de validações e transformações de dados. Juntamente com o resolver e o TypeScript fica muito prático de utilizar.
+    Foi criado um Schema que faz a "montagem" do formulário e depois inferido isso em um tipo para então repassar ao UseForm como um generic.   
+
     
