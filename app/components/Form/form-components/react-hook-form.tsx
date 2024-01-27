@@ -1,6 +1,5 @@
 'use client';
-//FORMULÁRIO COM REACT-HOOK-FORM APENAS.
-
+//FORMULÁRIO APENAS COM REACT-HOOK-FORM
 import { useForm } from "react-hook-form"
 
 interface FormData {
@@ -22,8 +21,6 @@ export default function Form() {
 
     const submitFom = (dados: FormData) => {
         console.log(dados)
-        alert('Dados submetidos com sucesso!')
-        return
     }
 
     return (
@@ -112,7 +109,7 @@ export default function Form() {
                         className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         placeholder="Digite sua senha"
                     />
-                {errors?.senha?.type === "required" && (<p className="text-red-600">A senha deve conter o min 8 caracteres</p>)}
+                {errors?.senha?.type === "required" && (<p className="text-red-600">Preencha este campo.</p>)}
                 </div>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2">
