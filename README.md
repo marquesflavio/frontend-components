@@ -11,6 +11,9 @@ Para formulários verificar:
  ## React hook form, Zod, @hookform/resolver
 
     Essa estrutura de formulário é mais completa, zod possui uma gama muito grande de validações e transformações de dados. Juntamente com o resolver e o TypeScript fica muito prático de utilizar.
-    Foi criado um Schema que faz a "montagem" do formulário e depois inferido isso em um tipo para então repassar ao UseForm como um generic.   
+    Foi criado um Schema que faz a "montagem" do formulário e depois inferido isso em um tipo para então repassar ao UseForm como um generic.
+
+    - Prestar atenção nos input types também. O type="date" por exemplo facilita para campos de data de nascimento e etc.
+    - preventDefatult() para evitar o carregamento da página antes que o formulário seja validado.
 
     
