@@ -1,11 +1,12 @@
-import FormBasicJS from "@/app/components/Form/form-components/form-basic.js"
+import { Filter } from "./components/Filter";
 
 export default function Home() {
   return (
     <div>
       {/* <Form /> */}
       {/* <FormComZod /> */}
-      <FormBasicJS />
+      {/* <FormBasicJS /> */}
+      <Filter />
     </div>
   );
 }
