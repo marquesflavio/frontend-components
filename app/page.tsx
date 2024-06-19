@@ -1,4 +1,5 @@
-import { Filter } from "./components/Filter";
+'use client'
+import { Dropzone } from "./components/Dropzone/Dropzone";
 
 export default function Home() {
   return (
@@ -6,7 +7,8 @@ export default function Home() {
       {/* <Form /> */}
       {/* <FormComZod /> */}
       {/* <FormBasicJS /> */}
-      <Filter />
+      {/* <Filter /> */}
+      <Dropzone />
     </div>
   );
 }
