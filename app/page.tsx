@@ -1,5 +1,7 @@
 'use client'
-import { Dropzone } from "./components/Dropzone/Dropzone";
+
+import { Login2 } from "./components/Form/useRef/formJeitoBom";
+import { Login1 } from "./components/Form/useRef/formJeitoRuim";
 
 export default function Home() {
   return (
@@ -8,7 +10,10 @@ export default function Home() {
       {/* <FormComZod /> */}
       {/* <FormBasicJS /> */}
       {/* <Filter /> */}
-      <Dropzone />
+      {/* <Dropzone /> */}
+      {/* <ImportXlsx /> */}
+      {/* <Login1 /> */}
+      <Login2 />
     </div>
   );
 }

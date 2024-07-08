@@ -1,0 +1,3 @@
+O hook useRef serve para...
+
+pode ser uma alternativa ao useState em formulário, evitando a renderização desnecessária em tela, e deixando o código mais performático.
